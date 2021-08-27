@@ -1,3 +1,4 @@
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 
@@ -35,3 +36,24 @@ class BaseFunctions(object):
 
     def wait_for_element(self, selector):
         return self.wait.until(ec.presence_of_element_located(selector))
+
+    def format(self, *args, **kwargs):  # known special case of str.format
+        """
+        S.format(*args, **kwargs) -> str
+
+        Return a formatted version of S, using substitutions from args and kwargs.
+        The substitutions are identified by braces ('{' and '}').
+        """
+        pass
+
+    def element_exists(self, selector):
+        """
+        Returns true if element present or return false if element not present
+        :param selector: locator of the element to be checked for
+
+        """
+        try:
+            self.wait.until(ec.element_to_be_clickable(selector))
+            return True
+        except TimeoutException:
+            return False

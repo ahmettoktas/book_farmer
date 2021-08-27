@@ -5,7 +5,7 @@ import unittest
 
 
 class TestRun(unittest.TestCase, BaseFunctions):
-    PARTNER_URL = "https://www.dr.com.tr/kategori/Kitap/Edebiyat/Deneme-Yazin/grupno=00129?Manufacturer[0]=%C4%B0kinci%20Adam%20Yay%C4%B1nlar%C4%B1&ShowNotForSale=True"
+    PARTNER_URL = 'https://www.dr.com.tr/kategori/kitap'
     TEXT_FILE = open("/home/ahmet-toktas/Desktop/data.txt", "w")
 
     def setUp(self):
